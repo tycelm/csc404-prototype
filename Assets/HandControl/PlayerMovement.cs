@@ -38,19 +38,22 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = movement;
 
 
-        bool movingNow = movement.magnitude > 0.01f;
+        bool movingNow = movement.magnitude > 0.5f;
 
+        // Movement started
         if (movingNow && !isMoving)
         {
             isMoving = true;
+
             if (moveSource != null && !moveSource.isPlaying)
                 moveSource.Play();
         }
 
-        // Trigger sounds when movement stops
+        // Movement stopped
         if (!movingNow && isMoving)
         {
             isMoving = false;
+
             if (moveSource != null && moveSource.isPlaying)
                 moveSource.Stop();
 
