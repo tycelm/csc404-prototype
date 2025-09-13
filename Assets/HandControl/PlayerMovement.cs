@@ -10,9 +10,10 @@ public class PlayerMovement : MonoBehaviour
     private InputAction moveAction;
     private InputAction dpadAction;
     public Vector3 movement;
+    bool disable = false;
 
     private bool isMoving = false;
-    public AudioSource moveSource; 
+    public AudioSource moveSource;
     public AudioSource stopSource;
 
     void Start()
@@ -27,39 +28,48 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Vector2 move = dpadAction.ReadValue<Vector2>();
-        // rb.linearVelocity = move * speed;
-
-        Vector2 stickMove = moveAction.ReadValue<Vector2>();
-        Vector2 dpadMove = dpadAction.ReadValue<Vector2>();
-        Vector3 stickMovement = new Vector3(stickMove.x, stickMove.y, 0);
-        Vector3 dpadMovement = new Vector3(0, 0, dpadMove.y);
-        movement = (stickMovement + dpadMovement) * speed;
-        rb.linearVelocity = movement;
-
-
-        bool movingNow = movement.magnitude > 0.5f;
-
-        // Movement started
-        if (movingNow && !isMoving)
+        if (disable)
         {
-            isMoving = true;
+            // Vector2 move = dpadAction.ReadValue<Vector2>();
+            // rb.linearVelocity = move * speed;
 
-            if (moveSource != null && !moveSource.isPlaying)
-                moveSource.Play();
+            Vector2 stickMove = moveAction.ReadValue<Vector2>();
+            Vector2 dpadMove = dpadAction.ReadValue<Vector2>();
+            Vector3 stickMovement = new Vector3(stickMove.x, stickMove.y, 0);
+            Vector3 dpadMovement = new Vector3(0, 0, dpadMove.y);
+            movement = (stickMovement + dpadMovement) * speed;
+            rb.linearVelocity = movement;
+
+
+            bool movingNow = movement.magnitude > 0.5f;
+
+            // Movement started
+            if (movingNow && !isMoving)
+            {
+                isMoving = true;
+
+                if (moveSource != null && !moveSource.isPlaying)
+                    moveSource.Play();
+            }
+
+            // Movement stopped
+            if (!movingNow && isMoving)
+            {
+                isMoving = false;
+
+                if (moveSource != null && moveSource.isPlaying)
+                    moveSource.Stop();
+
+                if (stopSource != null)
+                    stopSource.Play();
+            }
         }
 
-        // Movement stopped
-        if (!movingNow && isMoving)
-        {
-            isMoving = false;
+    }
 
-            if (moveSource != null && moveSource.isPlaying)
-                moveSource.Stop();
-
-            if (stopSource != null)
-                stopSource.Play();
-        }
+    public void TurnOff()
+    {
+        disable = true;
     }
 
     // public void OnMove(InputAction.CallbackContext context)

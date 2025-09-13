@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -8,19 +9,26 @@ public class PlayerInteract : MonoBehaviour
     public float reach = 1f;
     public GameObject fpsCam;
     Interactable currentItem;
-    HUDController hUDController;
+    [SerializeField] private HUDController hUDController;
+
+    private InputAction _interactAction;
 
     void Start()
     {
-        hUDController = GetComponentInChildren<HUDController>(true);
+        _interactAction = InputSystem.actions.FindAction("Interact");
     }
-
 
     // Update is called once per frame
     void Update()
     {
+        if (_interactAction.WasPressedThisFrame())
+        {
+            Debug.Log("touch");
+        }
+
         CheckInteraction();
-        if (Input.GetKeyDown(KeyCode.E) && currentItem != null)
+
+        if (_interactAction.WasPressedThisFrame() && currentItem != null)
         {
             currentItem.Interact();
         }
@@ -35,7 +43,7 @@ public class PlayerInteract : MonoBehaviour
         if (Physics.Raycast(ray, out hit, reach))
         {
 
-            if (hit.collider.tag == "Interactable")
+            if (hit.collider.tag == "interactable")
             {
                 Interactable newInteractable = hit.collider.GetComponent<Interactable>();
 
