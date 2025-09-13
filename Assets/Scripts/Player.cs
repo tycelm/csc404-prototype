@@ -63,16 +63,16 @@ public class Player : MonoBehaviour
             velocity.y += gravity;
             _characterController.Move(velocity);
 
-            // Look
-            Vector2 lookValue = _lookAction.ReadValue<Vector2>();
-            Vector3 lookRotate = new Vector3(0, lookValue.x * lookSensitivity * -1, 0);
-            xRotation -= lookValue.y * lookSensitivity;
-            yRotation -= lookValue.x * lookSensitivity;
-            // xRotation = Math.Clamp(xRotation, -90f, 90f);
-
-            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
-
         }
+
+        // Look
+        Vector2 lookValue = _lookAction.ReadValue<Vector2>();
+        Vector3 lookRotate = new Vector3(0, lookValue.x * lookSensitivity * -1, 0);
+        xRotation -= lookValue.y * lookSensitivity;
+        yRotation -= lookValue.x * lookSensitivity;
+        // xRotation = Math.Clamp(xRotation, -90f, 90f);
+
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
     }
 
