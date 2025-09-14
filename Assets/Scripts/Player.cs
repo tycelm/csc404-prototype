@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     public float moveSensitivity;
     public float lookSensitivity;
 
+    [SerializeField] private AudioSource footstepSource;
+    [SerializeField] private AudioClip[] footstepClips;
+    [SerializeField] private float stepInterval = 0.5f;
     private CharacterController _characterController;
     private Camera _camera;
     private Transform _cameraTransform;
@@ -26,6 +29,8 @@ public class Player : MonoBehaviour
     private bool disable = false;
     private bool outOfBody = false;
     private Animator animator;
+
+    private float stepTimer;
 
     void Start()
     {
@@ -69,6 +74,16 @@ public class Player : MonoBehaviour
 
             float speed = moveDir.magnitude;
             animator.SetFloat("Speed", speed);
+
+            if (speed != 0)
+            {
+                stepTimer -= Time.fixedDeltaTime;
+                if (stepTimer <= 0f)
+                {
+                    PlayFootstep();
+                    stepTimer = stepInterval;
+                }
+            }
         }
 
         // Look
@@ -92,6 +107,15 @@ public class Player : MonoBehaviour
             _camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         }
 
+    }
+
+    public void PlayFootstep()
+    {
+        if (footstepClips.Length > 0)
+        {
+            int index = UnityEngine.Random.Range(0, footstepClips.Length);
+            footstepSource.PlayOneShot(footstepClips[index]);
+        }
     }
 
     public void TurnOff()

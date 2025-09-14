@@ -30,6 +30,11 @@ public class PlayerInteract : MonoBehaviour
 
         PlayerInput playerInput = GetComponent<PlayerInput>();
         playerId = playerInput.playerIndex + 1;
+
+        if (playerId == 2)
+        {
+            hUDController.playText();
+        }
     }
 
     // Update is called once per frame
