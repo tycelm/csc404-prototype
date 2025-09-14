@@ -114,6 +114,7 @@ public class PlayerInteract : MonoBehaviour
 
     public void NullInteracting()
     {
+        interacting.Return(gameObject);
         interacting = null;
     }
 }

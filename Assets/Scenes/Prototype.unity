@@ -2423,7 +2423,7 @@ GameObject:
   - component: {fileID: 892026538}
   - component: {fileID: 892026539}
   m_Layer: 5
-  m_Name: Emergency Text (1)
+  m_Name: Finish Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2466,10 +2466,11 @@ MonoBehaviour:
   spriteA: {fileID: 21300000, guid: c307db820cf2c0b40aabd8ef0f956941, type: 3}
   spriteB: {fileID: 21300000, guid: cbe8edbdbfdd9b3418d4c7287d408ef9, type: 3}
   lines:
-  - Oh gleep!
-  - That was way too rough...
-  - Someone has to go to the arm to fix the hull breach
+  - Phew.....
+  - Maybe that's enough testing for the day
   textDelay: 0.05
+  audioSource: {fileID: 1656035967}
+  clip: {fileID: 8300000, guid: 0eb5449b20403ad4891cc86b0fae3a14, type: 3}
 --- !u!1 &894500374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3847,6 +3848,8 @@ MonoBehaviour:
   - That was way too rough...
   - Someone has to go to the arm to fix the hull breach
   textDelay: 0.05
+  audioSource: {fileID: 1656035967}
+  clip: {fileID: 8300000, guid: 0eb5449b20403ad4891cc86b0fae3a14, type: 3}
 --- !u!1 &1339649927 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8245604283354703457, guid: 88bb9d341f1769147818fa07b95205b5, type: 3}
@@ -4234,6 +4237,8 @@ MonoBehaviour:
   - Welcome to the systems configuration test
   - Our first test is to pilot the ship to press the big red button
   textDelay: 0.05
+  audioSource: {fileID: 1656035967}
+  clip: {fileID: 8300000, guid: 0eb5449b20403ad4891cc86b0fae3a14, type: 3}
 --- !u!1 &1543899272
 GameObject:
   m_ObjectHideFlags: 0
@@ -4448,6 +4453,7 @@ GameObject:
   - component: {fileID: 1656035965}
   - component: {fileID: 1656035964}
   - component: {fileID: 1656035963}
+  - component: {fileID: 1656035967}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -4495,8 +4501,11 @@ MonoBehaviour:
   interactionText:
   - {fileID: 470572861}
   - {fileID: 199423684}
-  starterDialogue: {fileID: 1519499782}
   dialogueUI: {fileID: 68025234}
+  starterDialogue:
+  - {fileID: 1519499782}
+  - {fileID: 1262654678}
+  - {fileID: 892026539}
 --- !u!114 &1656035964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4560,6 +4569,103 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!82 &1656035967
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656035961}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 0eb5449b20403ad4891cc86b0fae3a14, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &1807756036
 Animator:
   serializedVersion: 7

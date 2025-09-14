@@ -13,6 +13,8 @@ public class Door : Interactable
         charControl.enabled = false;
         player.transform.position = Destination.position;
         charControl.enabled = true;
-        Debug.Log("Teleported closest player: " + player.name);
+
+        PlayerInteract playerInteract = player.GetComponent<PlayerInteract>();
+        playerInteract.NullInteracting();
     }
 }
