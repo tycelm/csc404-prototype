@@ -23,4 +23,16 @@ public class HeadConsole : Interactable
         player.GetComponent<Player>().TurnOff();
         player.GetComponent<Player>().switchToHead();
     }
+
+    public override void Return(GameObject player)
+    {
+        PlayerInput playerInput = player.GetComponent<PlayerInput>();
+        Camera playerCam = playerInput.camera;
+
+        playerCam.transform.position = originalPosition;
+        playerCam.transform.rotation = originalRotation;
+
+        player.GetComponent<Player>().TurnOn();
+        player.GetComponent<Player>().switchOffHead();
+    }
 }

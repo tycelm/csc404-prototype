@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
 
     private bool disable = false;
     private bool outOfBody = false;
+    private Animator animator;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
         _cameraTransform = _camera.GetComponent<Transform>();
         _moveAction = input.actions.FindAction("Move");
         _lookAction = input.actions.FindAction("Look");
+        animator = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate()
@@ -65,6 +67,8 @@ public class Player : MonoBehaviour
             velocity.y += gravity;
             _characterController.Move(velocity * Time.deltaTime);
 
+            float speed = moveDir.magnitude;
+            animator.SetFloat("Speed", speed);
         }
 
         // Look
@@ -77,7 +81,7 @@ public class Player : MonoBehaviour
 
         if (outOfBody)
         {
-            yRotation = Math.Clamp(yRotation, -10f, 10f);
+            yRotation = Math.Clamp(yRotation, -30f, 30f);
             xRotation = Math.Clamp(xRotation, -70f, 70f);
             _camera.transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
         }
@@ -95,6 +99,11 @@ public class Player : MonoBehaviour
         disable = true;
     }
 
+    public void TurnOn()
+    {
+        disable = false;
+    }
+
     public void switchToHead()
     {
         outOfBody = true;
@@ -102,6 +111,6 @@ public class Player : MonoBehaviour
 
     public void switchOffHead()
     {
-        outOfBody = true;
+        outOfBody = false;
     }
 }

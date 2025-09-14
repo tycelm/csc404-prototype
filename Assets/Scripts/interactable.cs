@@ -7,6 +7,7 @@ public class Interactable : MonoBehaviour
     public Outline outline;
 
     public UnityEvent onInteraction;
+    public UnityEvent onReturn;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,11 @@ public class Interactable : MonoBehaviour
     public virtual void Interact(GameObject player)
     {
         onInteraction.Invoke();
+    }
+
+    public virtual void Return(GameObject player)
+    {
+        onReturn.Invoke();
     }
 
     public void DisableOutline()

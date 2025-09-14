@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource stopSource;
 
     private GameObject _currPlayer;
-    
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -76,6 +76,11 @@ public class PlayerMovement : MonoBehaviour
         moveAction = input.actions.FindAction("Move");
         dpadAction = input.actions.FindAction("DpadMove");
         disable = true;
+    }
+
+    public void TurnOff(GameObject playerUsing)
+    {
+        disable = false;
     }
 
     // public void OnMove(InputAction.CallbackContext context)

@@ -13,12 +13,19 @@ public class PlayerInteract : MonoBehaviour
 
     private InputAction _interactAction;
 
+    private InputAction _returnAction;
+
+    private Interactable interacting;
+
     void Awake()
     {
         var input = GetComponent<PlayerInput>();
         _interactAction = input.actions.FindAction("Interact");
+        _returnAction = input.actions.FindAction("Return");
         hUDController = FindFirstObjectByType<HUDController>();
         fpsCam = GetComponent<PlayerInput>().camera;
+
+        interacting = null;
     }
 
     // Update is called once per frame
@@ -31,9 +38,16 @@ public class PlayerInteract : MonoBehaviour
 
         CheckInteraction();
 
-        if (_interactAction.WasPressedThisFrame() && currentItem != null)
+        if (_interactAction.WasPressedThisFrame() && currentItem != null && interacting == null)
         {
             currentItem.Interact(gameObject);
+            interacting = currentItem;
+        }
+
+        if (_returnAction.WasPressedThisFrame() && interacting != null)
+        {
+            interacting.Return(gameObject);
+            interacting = null;
         }
 
     }

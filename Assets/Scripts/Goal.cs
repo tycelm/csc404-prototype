@@ -1,12 +1,25 @@
+using System.Collections;
 using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    bool emergency;
+    public AudioSource normal;
+    public AudioSource scary;
+    public GameObject redLight;
+    public GameObject flashLight;
+    public GameObject defaultLight;
+    public GameObject alarm;
+    public float interval = 1f;
+    private bool emergency;
+    private Coroutine toggleCoroutine;
 
     void Start()
     {
         emergency = false;
+        scary.enabled = false;
+        redLight.SetActive(false);
+        flashLight.SetActive(false);
+        alarm.SetActive(false);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnTriggerEnter(Collider other)
@@ -21,11 +34,45 @@ public class Goal : MonoBehaviour
     void EmergencyEvent()
     {
         emergency = true;
+        scary.enabled = true;
+        normal.enabled = false;
+        redLight.SetActive(true);
+        defaultLight.SetActive(false);
+        toggleCoroutine = StartCoroutine(ToggleLoop());
+        StartCoroutine(ToggleSoundLoop());
+    }
 
+    IEnumerator ToggleLoop()
+    {
+        while (true)
+        {
+            // Toggle active state
+            flashLight.SetActive(!flashLight.activeSelf);
+            redLight.SetActive(!redLight.activeSelf);
+
+            // Wait for interval
+            yield return new WaitForSeconds(interval);
+        }
+    }
+
+    IEnumerator ToggleSoundLoop()
+    {
+        yield return new WaitForSeconds(2);
+        alarm.SetActive(false);
     }
 
     public void StopEmergency()
     {
+        Debug.Log("Emergency over");
         emergency = false;
+        scary.enabled = false;
+        normal.enabled = true;
+
+        defaultLight.SetActive(true);
+        redLight.SetActive(false);
+        flashLight.SetActive(false);
+
+        if (toggleCoroutine != null)
+            StopCoroutine(toggleCoroutine);
     }
 }
