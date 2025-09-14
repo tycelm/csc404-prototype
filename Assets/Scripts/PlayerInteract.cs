@@ -7,7 +7,7 @@ public class PlayerInteract : MonoBehaviour
 {
     // [SerializeField] private GameObject hudPrefab;
     public float reach = 1f;
-    public GameObject fpsCam;
+    private Camera fpsCam;
     Interactable currentItem;
     [SerializeField] private HUDController hUDController;
 
@@ -16,6 +16,7 @@ public class PlayerInteract : MonoBehaviour
     void Start()
     {
         _interactAction = InputSystem.actions.FindAction("Interact");
+        fpsCam = GetComponent<PlayerInput>().camera;
     }
 
     // Update is called once per frame

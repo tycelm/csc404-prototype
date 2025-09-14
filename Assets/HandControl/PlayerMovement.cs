@@ -16,14 +16,16 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource moveSource;
     public AudioSource stopSource;
 
+    private GameObject _currPlayer;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         // audioSource = GetComponent<AudioSource>();
 
-        moveAction = InputSystem.actions.FindAction("Move");
+        // moveAction = InputSystem.actions.FindAction("Move");
         // moveAction.Enable();
-        dpadAction = InputSystem.actions.FindAction("DpadMove");
+        // dpadAction = InputSystem.actions.FindAction("DpadMove");
     }
 
     void Update()
@@ -67,8 +69,12 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void TurnOff()
+    public void TurnOn(GameObject playerUsing)
     {
+        _currPlayer = playerUsing;
+        var input = _currPlayer.GetComponent<PlayerInput>();
+        moveAction = input.actions.FindAction("Move");
+        dpadAction = input.actions.FindAction("DpadMove");
         disable = true;
     }
 

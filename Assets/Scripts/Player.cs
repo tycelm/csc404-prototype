@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
             _characterController.Move(moveDir * moveSpeed * Time.deltaTime);
 
             velocity.y += gravity;
-            _characterController.Move(velocity);
+            _characterController.Move(velocity * Time.deltaTime);
 
         }
 
