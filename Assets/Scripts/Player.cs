@@ -29,10 +29,11 @@ public class Player : MonoBehaviour
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
-        _camera = GetComponent<PlayerInput>().camera;
+        var input = GetComponent<PlayerInput>();
+        _camera = input.camera;
         _cameraTransform = _camera.GetComponent<Transform>();
-        _moveAction = InputSystem.actions.FindAction("Move");
-        _lookAction = InputSystem.actions.FindAction("Look");
+        _moveAction = input.actions.FindAction("Move");
+        _lookAction = input.actions.FindAction("Look");
     }
 
     void FixedUpdate()
