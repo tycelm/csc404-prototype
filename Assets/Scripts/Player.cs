@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     private bool isGrounded;
 
     private bool disable = false;
+    private bool outOfBody = false;
 
     void Start()
     {
@@ -72,12 +73,34 @@ public class Player : MonoBehaviour
         yRotation -= lookValue.x * lookSensitivity * -1;
         // xRotation = Math.Clamp(xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+
+        if (outOfBody)
+        {
+            yRotation = Math.Clamp(yRotation, -10f, 10f);
+            xRotation = Math.Clamp(xRotation, -70f, 70f);
+            _camera.transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0f, yRotation, 0f);
+            xRotation = Math.Clamp(xRotation, -90f, 90f);
+            _camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        }
 
     }
 
     public void TurnOff()
     {
         disable = true;
+    }
+
+    public void switchToHead()
+    {
+        outOfBody = true;
+    }
+
+    public void switchOffHead()
+    {
+        outOfBody = true;
     }
 }

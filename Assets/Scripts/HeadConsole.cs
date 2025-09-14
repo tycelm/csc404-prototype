@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class HeadConsole : Interactable
 {
-    [SerializeField] private Vector3 camPosition;
+    [SerializeField] private Transform camPosition;
     [SerializeField] private Quaternion camAngle;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
@@ -17,7 +17,10 @@ public class HeadConsole : Interactable
         originalPosition = playerCam.transform.position;
         originalRotation = playerCam.transform.rotation;
 
-        playerCam.transform.position = camPosition;
+        playerCam.transform.position = camPosition.position;
         playerCam.transform.rotation = camAngle;
+
+        player.GetComponent<Player>().TurnOff();
+        player.GetComponent<Player>().switchToHead();
     }
 }
