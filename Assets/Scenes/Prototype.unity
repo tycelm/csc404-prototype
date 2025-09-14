@@ -1984,6 +1984,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.03754007, y: 0.14976709, z: 0.0113567365}
   m_Center: {x: 0.0000000010260999, y: 0.07479451, z: -0.012427942}
+--- !u!1 &1002390739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1002390741}
+  - component: {fileID: 1002390740}
+  m_Layer: 0
+  m_Name: Audio Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1002390740
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002390739}
+  m_Enabled: 1
+--- !u!4 &1002390741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002390739}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.7802, y: 14.35659, z: 5.81444}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1008160157 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8925454360237781705, guid: 902ef8683fff30c478ab2e2b089a204f, type: 3}
@@ -3589,3 +3629,4 @@ SceneRoots:
   - {fileID: 1110121724}
   - {fileID: 1769016755}
   - {fileID: 1543899276}
+  - {fileID: 1002390741}
