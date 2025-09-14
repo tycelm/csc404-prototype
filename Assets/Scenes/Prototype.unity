@@ -637,7 +637,7 @@ MonoBehaviour:
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
-  camPosition: {x: 166.6, y: 16.3, z: 0}
+  camPosition: {fileID: 0}
   camAngle: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &371331214
 MonoBehaviour:
@@ -2769,11 +2769,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1697331249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1009875846165658482, guid: 87bdb807d57aa86469e811b3d347d289, type: 3}
-  m_PrefabInstance: {fileID: 8233891695100620179}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1711799988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3478,20 +3473,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b03e86c26a88e549a1495ac083afd7b, type: 3}
---- !u!114 &3839579507083514923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697331249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2320e499887f204cbfbd6cc714f18d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
-  reach: 5
-  hUDController: {fileID: 1656035963}
 --- !u!1001 &8233891695100620179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3561,10 +3542,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 6488584020102825866, guid: 87bdb807d57aa86469e811b3d347d289, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1009875846165658482, guid: 87bdb807d57aa86469e811b3d347d289, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3839579507083514923}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87bdb807d57aa86469e811b3d347d289, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
