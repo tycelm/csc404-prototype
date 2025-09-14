@@ -17,6 +17,10 @@ public class Interactable : MonoBehaviour
     public virtual void Interact(GameObject player)
     {
         onInteraction.Invoke();
+
+        // most interactables will not be stuck on interaction
+        PlayerInteract playerInteract = player.GetComponent<PlayerInteract>();
+        playerInteract.NullInteracting();
     }
 
     public virtual void Return(GameObject player)

@@ -8,17 +8,17 @@ using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
-    [SerializeField] TMP_Text interactionText;
+    [SerializeField] List<TMP_Text> interactionText;
 
-    public void EnableInteractionText(string content)
+    public void EnableInteractionText(int player, string content)
     {
-        interactionText.text = content + " (E)";
-        interactionText.gameObject.SetActive(true);
+        interactionText[player - 1].text = content;
+        interactionText[player - 1].gameObject.SetActive(true);
     }
 
 
-    public void DisableInteractionText()
+    public void DisableInteractionText(int player)
     {
-        interactionText.gameObject.SetActive(false);
+        interactionText[player - 1].gameObject.SetActive(false);
     }
 }

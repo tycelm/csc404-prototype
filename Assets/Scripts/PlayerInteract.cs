@@ -16,6 +16,7 @@ public class PlayerInteract : MonoBehaviour
     private InputAction _returnAction;
 
     private Interactable interacting;
+    private int playerId;
 
     void Awake()
     {
@@ -26,20 +27,21 @@ public class PlayerInteract : MonoBehaviour
         fpsCam = GetComponent<PlayerInput>().camera;
 
         interacting = null;
+
+        PlayerInput playerInput = GetComponent<PlayerInput>();
+        playerId = playerInput.playerIndex + 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_interactAction.WasPressedThisFrame())
-        {
-            Debug.Log("touch");
-        }
-
         CheckInteraction();
 
+        // Debug.Log("Current Item: " + currentItem);
+        // Debug.Log("Current Item: " + interacting);
         if (_interactAction.WasPressedThisFrame() && currentItem != null && interacting == null)
         {
+            Debug.Log("Interacting with " + currentItem);
             currentItem.Interact(gameObject);
             interacting = currentItem;
         }
@@ -59,7 +61,6 @@ public class PlayerInteract : MonoBehaviour
         Ray ray = new Ray(fpsCam.transform.position, fpsCam.transform.forward);
         if (Physics.Raycast(ray, out hit, reach))
         {
-
             if (hit.collider.tag == "interactable")
             {
                 Interactable newInteractable = hit.collider.GetComponent<Interactable>();
@@ -93,16 +94,21 @@ public class PlayerInteract : MonoBehaviour
     {
         currentItem = newInteractable;
         currentItem.EnableOutline();
-        hUDController.EnableInteractionText(currentItem.message);
+        hUDController.EnableInteractionText(playerId, currentItem.message);
     }
 
     void DisableCurrInteractable()
     {
-        hUDController.DisableInteractionText();
+        hUDController.DisableInteractionText(playerId);
         if (currentItem)
         {
             currentItem.DisableOutline();
             currentItem = null;
         }
+    }
+
+    public void NullInteracting()
+    {
+        interacting = null;
     }
 }
