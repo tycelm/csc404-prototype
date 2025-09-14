@@ -7,7 +7,7 @@ public class Door : Interactable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     // Update is called once per frame
-    public override void Interact()
+    public override void Interact(GameObject player)
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
