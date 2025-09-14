@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7968459918758892235}
   - component: {fileID: 3567067875373341161}
   - component: {fileID: 2468870759577335785}
+  - component: {fileID: 3713163052067374772}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -147,10 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed40283c00862dc1fb3b6b0c7f63344c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  moveSpeed: 10
+  moveSpeed: 8
   moveSensitivity: 0.3
-  lookSensitivity: 2
-  gravity: -9.81
+  lookSensitivity: 2.5
+  gravity: -0.05
   groundCheckDistance: 0.2
   groundMask:
     serializedVersion: 2
@@ -180,11 +181,25 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Gamepad
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 808902687716362197}
+--- !u!114 &3713163052067374772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009875846165658482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2320e499887f204cbfbd6cc714f18d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
+  reach: 5
+  hUDController: {fileID: 0}
 --- !u!1 &2729487947796311777
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +210,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3409637828127297824}
   - component: {fileID: 808902687716362197}
-  - component: {fileID: 5474266765125767888}
   - component: {fileID: 3500814925142397576}
   m_Layer: 0
   m_Name: Player1 Camera
@@ -258,7 +272,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 53
+    m_Bits: 61
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -270,14 +284,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5474266765125767888
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2729487947796311777}
-  m_Enabled: 1
 --- !u!114 &3500814925142397576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +428,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
   reach: 5
-  fpsCam: {fileID: 2729487947796311777}
   hUDController: {fileID: 0}
 --- !u!1001 &4403114081412562655
 PrefabInstance:

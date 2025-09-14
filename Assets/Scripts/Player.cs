@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
         Vector2 lookValue = _lookAction.ReadValue<Vector2>();
         Vector3 lookRotate = new Vector3(0, lookValue.x * lookSensitivity * -1, 0);
         xRotation -= lookValue.y * lookSensitivity;
-        yRotation -= lookValue.x * lookSensitivity;
+        yRotation -= lookValue.x * lookSensitivity * -1;
         // xRotation = Math.Clamp(xRotation, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);

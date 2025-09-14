@@ -13,9 +13,10 @@ public class PlayerInteract : MonoBehaviour
 
     private InputAction _interactAction;
 
-    void Start()
+    void Awake()
     {
         _interactAction = InputSystem.actions.FindAction("Interact");
+        hUDController = FindFirstObjectByType<HUDController>();
         fpsCam = GetComponent<PlayerInput>().camera;
     }
 
