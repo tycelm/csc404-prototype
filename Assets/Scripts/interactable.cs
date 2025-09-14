@@ -13,7 +13,7 @@ public class Interactable : MonoBehaviour
         DisableOutline();
     }
 
-    public virtual void Interact()
+    public virtual void Interact(GameObject player)
     {
         onInteraction.Invoke();
     }

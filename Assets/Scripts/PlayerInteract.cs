@@ -30,7 +30,7 @@ public class PlayerInteract : MonoBehaviour
 
         if (_interactAction.WasPressedThisFrame() && currentItem != null)
         {
-            currentItem.Interact();
+            currentItem.Interact(gameObject);
         }
 
     }

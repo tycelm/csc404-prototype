@@ -1,49 +1,9 @@
 fileFormatVersion: 2
-guid: 902ef8683fff30c478ab2e2b089a204f
+guid: 40397bb3cc143ab41b25057b81876426
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Bottom_Room_ver001_ArmRoomPortal
-    second: {fileID: 2100000, guid: b7a22b8b33a380a4283b6dddda8c82c3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: T_Television
-    second: {fileID: 2100000, guid: b7a22b8b33a380a4283b6dddda8c82c3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: T_floor
-    second: {fileID: 2100000, guid: b7a22b8b33a380a4283b6dddda8c82c3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: T_wallback
-    second: {fileID: 2100000, guid: b7a22b8b33a380a4283b6dddda8c82c3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: T_wallfront
-    second: {fileID: 2100000, guid: b7a22b8b33a380a4283b6dddda8c82c3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: T_wallside
-    second: {fileID: 2100000, guid: b7a22b8b33a380a4283b6dddda8c82c3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: standardSurface1
-    second: {fileID: 2100000, guid: b7a22b8b33a380a4283b6dddda8c82c3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: standardSurface1.001
-    second: {fileID: 2100000, guid: b7a22b8b33a380a4283b6dddda8c82c3, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
